@@ -21,7 +21,6 @@
 #define _NBMQTT_H
 
 #include "Modem.h"
-// #include "NB.h"
 
 class NBMqtt {
 
@@ -213,6 +212,19 @@ public:
    * @param IP_address MQTT server IP
    */
   bool pingMQTTServer(const char *IP_address);
+  
+private:
+  String _response;
+  String _response1;
+  uint16_t _local_port;
+  uint16_t _keep_alive;
+  bool _MQTT_secure;
+  uint8_t _USECMNG_profile;
+  bool _result;
+  uint8_t _NVM_mode;
+  uint8_t _QoS;
+  bool _retain;
+  
 };
 
 #endif // _NBMQTT_H
