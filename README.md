@@ -5,7 +5,7 @@ This library allows an [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mk
 It serves as an extension and relies on the [MKRNB library](https://github.com/arduino-libraries/MKRNB) for its functionality.
 
 ## License
-Copyright (c) 2024. All rights reserved.
+Copyright (c) 2024 Nicholas Dimitriou. All rights reserved.
 
 This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
 
