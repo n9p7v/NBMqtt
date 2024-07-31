@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For NBMqtt
+#######################################
+
+#######################################
+# Class (KEYWORD1)
+#######################################
+
+NBMqtt	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setMQTTClientID	KEYWORD2
+setMQTTPort	KEYWORD2
+setMQTTServerName	KEYWORD2
+setMQTTServerIP	KEYWORD2
+setMQTTUsernamePassword	KEYWORD2
+setMQTTKeepAlive	KEYWORD2
+setMQTTsecure	KEYWORD2
+setMQTTProfile	KEYWORD2
+setMQTTProfileAuth	KEYWORD2
+setMQTTProfileSecure	KEYWORD2
+
+setMQTTNvmMode	KEYWORD2
+
+logoutMQTTClient	KEYWORD2
+loginMQTTClient	KEYWORD2
+publishMQTTTopic	KEYWORD2
+pingMQTTServer	KEYWORD2
