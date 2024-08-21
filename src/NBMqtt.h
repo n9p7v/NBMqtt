@@ -214,16 +214,16 @@ public:
   bool pingMQTTServer(const char *IP_address);
   
 private:
-  String _response;
-  String _response1;
-  uint16_t _local_port;
-  uint16_t _keep_alive;
-  bool _MQTT_secure;
-  uint8_t _USECMNG_profile;
-  bool _result;
-  uint8_t _NVM_mode;
-  uint8_t _QoS;
-  bool _retain;
+  String response;
+  String response1;
+  uint16_t local_port;
+  uint16_t keep_alive;
+  bool MQTT_secure;
+  uint8_t USECMNG_profile;
+  bool result;
+  uint8_t NVM_mode;
+  uint8_t QoS;
+  bool retain;
   
 };
 
