@@ -28,7 +28,7 @@ bool NBMqtt::setMQTTClientID(const char *client_id) {
 }
 
 bool NBMqtt::setMQTTPort(uint16_t local_port) {
-  if (local_port > 65535) {
+  if (local_port < 1 || local_port > 65535) {
     return false;
   }
   
@@ -58,8 +58,8 @@ bool NBMqtt::setMQTTServerName(const char *server_name) {
 }
 
 bool NBMqtt::setMQTTServerIP(const char *IP_address, uint16_t local_port) {
-  if ((IP_address == nullptr) || (local_port > 65535)) {
-      return false;
+  if (IP_address == nullptr || local_port < 1 || local_port > 65535) {
+    return false;
   }
 
   MODEM.sendf("AT+UMQTT=3,\"%s\",%u", IP_address, local_port);
@@ -71,7 +71,7 @@ bool NBMqtt::setMQTTServerIP(const char *IP_address, uint16_t local_port) {
 }
 
 bool NBMqtt::setMQTTUsernamePassword(const char *username, const char *password) {
-  if ((username == nullptr) || (password == nullptr)) {
+  if (username == nullptr || password == nullptr) {
     return false;
   }
 
@@ -90,7 +90,7 @@ bool NBMqtt::setMQTTUsernamePassword(const char *username, const char *password)
 }
 
 bool NBMqtt::setMQTTKeepAlive(uint16_t keep_alive) {
-  if (keep_alive > 65535) {
+  if (keep_alive < 0 || keep_alive > 65535) {
     return false;
   }
 
@@ -111,53 +111,6 @@ bool NBMqtt::setMQTTsecure(bool MQTT_secure, uint8_t USECMNG_profile) {
   }
 }
 
-bool NBMqtt::setCommonMQTTProfile(const char *client_id,
-                            uint16_t local_port,
-                            const char *IP_address,
-                            uint16_t keep_alive,
-                            const char *username,
-                            const char *password,
-                            bool MQTT_secure,
-                            uint8_t USECMNG_profile) {
-  result = true;
-  result &= setMQTTClientID(client_id);
-  result &= setMQTTPort(local_port);
-  result &= setMQTTServerIP(IP_address, local_port);
-  if (username && password) {
-    result &= setMQTTUsernamePassword(username, password);
-  }
-  result &= setMQTTKeepAlive(keep_alive);
-  if (MQTT_secure) {
-    result &= setMQTTsecure(MQTT_secure, USECMNG_profile);
-  }
-  return result;
-}
-
-bool NBMqtt::setMQTTProfile(const char *client_id,
-                            uint16_t local_port,
-                            const char *IP_address,
-                            uint16_t keep_alive) {
-  return setCommonMQTTProfile(client_id, local_port, IP_address, keep_alive, nullptr, nullptr, false, 0);
-}
-
-bool NBMqtt::setMQTTProfileAuth(const char *client_id,
-                                uint16_t local_port,
-                                const char *IP_address,
-                                const char *username,
-                                const char *password,
-                                uint16_t keep_alive) {
-  return setCommonMQTTProfile(client_id, local_port, IP_address, keep_alive, username, password, false, 0);
-}
-
-bool NBMqtt::setMQTTProfileSecure(const char *client_id,
-                                  uint16_t local_port,
-                                  const char *IP_address,
-                                  uint16_t keep_alive,
-                                  bool MQTT_secure,
-                                  uint8_t USECMNG_profile) {
-  return setCommonMQTTProfile(client_id, local_port, IP_address, keep_alive, nullptr, nullptr, MQTT_secure, USECMNG_profile);
-}
-
 /********** TODO: MQTT will topic configuration +UMQTTWTOPIC **********/
 
 /********** TODO: MQTT will message configuration +UMQTTWMSG **********/
@@ -165,13 +118,12 @@ bool NBMqtt::setMQTTProfileSecure(const char *client_id,
 /********** Save/Restore MQTT profile from NVM +UMQTTNV **********/
 
 bool NBMqtt::setMQTTNvmMode(uint8_t NVM_mode) {
-  if (NVM_mode > 2) {
+  if (NVM_mode < 0 || NVM_mode > 2) {
     return false;
   }
 
   MODEM.sendf("AT+UMQTTNV=%u", NVM_mode);
   if (MODEM.waitForResponse(100, &response) == 1) {
-    // response1 = "+UMQTTNV: " + String(_NVM_mode) + ",1";
     return response.startsWith("+UMQTTNV: " + String(NVM_mode) + ",1");
   } else {
     return false;
@@ -180,7 +132,7 @@ bool NBMqtt::setMQTTNvmMode(uint8_t NVM_mode) {
 
 /********** MQTT command +UMQTTC **********/
 
-bool NBMqtt::logoutMQTTClient(void) {
+bool NBMqtt::logoutMQTTClient() {
   MODEM.sendf("AT+UMQTTC=0");
   if (MODEM.waitForResponse(120000UL, &response) == 1) {
     return response.startsWith("+UMQTTC: 0,1");
@@ -189,7 +141,7 @@ bool NBMqtt::logoutMQTTClient(void) {
   }
 }
 
-bool NBMqtt::loginMQTTClient(void) {
+bool NBMqtt::loginMQTTClient() {
   MODEM.sendf("AT+UMQTTC=1");
   if (MODEM.waitForResponse(120000UL, &response) == 1) {
     return response.startsWith("+UMQTTC: 1,1");

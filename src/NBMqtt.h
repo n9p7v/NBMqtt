@@ -104,75 +104,6 @@ public:
   bool setMQTTsecure(bool MQTT_secure, uint8_t USECMNG_profile);
 
   /**
-   * Set MQTT basic profile
-
-   */
-  bool setCommonMQTTProfile(const char *client_id,
-                            uint16_t local_port,
-                            const char *IP_address,
-                            uint16_t keep_alive,
-                            const char *username,
-                            const char *password,
-                            bool MQTT_secure,
-                            uint8_t USECMNG_profile);
-  
-  /**
-   * Set MQTT basic profile
-   * 
-   * @param cliend_id
-   * @param local_port: 1883 no-TLS
-   * @param IP_adress
-   * @param keep_alive: 0 (default) - 65535
-   * 
-   * @return - 1 = OK
-   * @return - 0 = ERROR
-   */
-  bool setMQTTProfile(const char *client_id,
-                      uint16_t local_port,
-                      const char *IP_address,
-                      uint16_t keep_alive);
-
-  /**
-   * Set MQTT Auth profile
-   * 
-   * @param cliend_id
-   * @param local_port: 1883 no-TLS
-   * @param IP_adress
-   * @param username
-   * @param password
-   * @param keep_alive: 0 (default) - 65535
-   * 
-   * @return - 1 = OK
-   * @return - 0 = ERROR
-   */
-  bool setMQTTProfileAuth(const char *client_id,
-                          uint16_t local_port,
-                          const char *IP_address,
-                          const char *username,
-                          const char *password,
-                          uint16_t keep_alive);
-
-  /**
-   * Set MQTT TLS profile
-   * 
-   * @param cliend_id
-   * @param local_port: 8883 TLS
-   * @param IP_adress
-   * @param keep_alive: 0 (default) - 65535
-   * @param MQTT_secure: true
-   * @param USECMNG_profile
-   * 
-   * @return - 1 = OK
-   * @return - 0 = ERROR
-   */
-  bool setMQTTProfileSecure(const char *client_id,
-                      uint16_t local_port,
-                      const char *IP_address,
-                      uint16_t keep_alive,
-                      bool MQTT_secure = true,
-                      uint8_t USECMNG_profile = 0);
-
-  /**
    * Save/Restore MQTT profile to/from non-volatile memory (NVM)
    * 
    * @param 0 restore default
@@ -215,7 +146,6 @@ public:
   
 private:
   String response;
-  String response1;
   uint16_t local_port;
   uint16_t keep_alive;
   bool MQTT_secure;
@@ -224,7 +154,6 @@ private:
   uint8_t NVM_mode;
   uint8_t QoS;
   bool retain;
-  
 };
 
 #endif // _NBMQTT_H
