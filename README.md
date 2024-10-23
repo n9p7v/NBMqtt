@@ -1,8 +1,14 @@
-# NBMqtt
+# Arduino Library for u-blox SARA R410M
 
-This library allows an [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) board to connect and publish data to an MQTT broker utilizing u-blox [SARA-R4](https://www.u-blox.com/en/product/sara-r4-series?legacy=Current#Documentation-&-resources) AT commands.
+## Usage
 
-It serves as an extension and relies on the [MKRNB library](https://github.com/arduino-libraries/MKRNB) for its functionality.
+This library allows an [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) to set, connect, and publish data to an MQTT broker utilizing u-blox [SARA-R4 series](https://www.u-blox.com/en/product/sara-r4-series?legacy=Current#Documentation-&-resources) AT commands.
+
+It serves as an extension, and relies on the [MKRNB library](https://github.com/arduino-libraries/MKRNB) for its functionality.
+
+It is tested on SARA-R410M-02B loaded with the firmware:
+Modem: L0.0.00.00.05.12
+Application: A.02.21
 
 ## License
 Copyright (c) 2024 Nicholas Dimitriou. All rights reserved.
