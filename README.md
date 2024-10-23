@@ -7,8 +7,8 @@ This library allows an [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mk
 It serves as an extension, and relies on the [MKRNB library](https://github.com/arduino-libraries/MKRNB) for its functionality.
 
 It is tested on SARA-R410M-02B loaded with the firmware:
-Modem: L0.0.00.00.05.12
-Application: A.02.21
+- Modem: L0.0.00.00.05.12
+- Application: A.02.21
 
 ## License
 Copyright (c) 2024 Nicholas Dimitriou. All rights reserved.
