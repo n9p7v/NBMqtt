@@ -2,7 +2,7 @@
 
 ## Usage
 
-This library allows an [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) to set, connect, and publish data to an MQTT broker utilizing u-blox [SARA-R4 series](https://www.u-blox.com/en/product/sara-r4-series?legacy=Current#Documentation-&-resources) AT commands.
+This library allows an [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mkr-nb-1500) to set, connect, and publish data to an MQTT broker utilizing u-blox [SARA-R4 series](https://www.u-blox.com/en/product/sara-r4-series?legacy=Current#Documentation-&-resources) AT command set.
 
 It serves as an extension, and relies on the [MKRNB library](https://github.com/arduino-libraries/MKRNB) for its functionality.
 
