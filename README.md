@@ -6,9 +6,11 @@ This library allows an [Arduino MKR NB 1500](https://docs.arduino.cc/hardware/mk
 
 It serves as an extension, and relies on the [MKRNB library](https://github.com/arduino-libraries/MKRNB) for its functionality.
 
-It is tested on SARA-R410M-02B loaded with the firmware:
+It is tested on the SARA-R410M-02B loaded with the firmware:
 - Modem: L0.0.00.00.05.12
 - Application: A.02.21
+
+Note: According to the firmware's known limitations, MQTTS does not function properly [u-blox id 3869].
 
 ## License
 
