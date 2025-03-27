@@ -34,7 +34,7 @@ public:
   NBMqtt(bool debug = false);
 
   /**
-   * Deconstructor
+   * Destructor
    */
   ~NBMqtt();
 
@@ -146,14 +146,6 @@ public:
   
 private:
   String response;
-  uint16_t local_port;
-  uint16_t keep_alive;
-  bool MQTT_secure;
-  uint8_t USECMNG_profile;
-  bool result;
-  uint8_t NVM_mode;
-  uint8_t QoS;
-  bool retain;
 };
 
 #endif // _NBMQTT_H
